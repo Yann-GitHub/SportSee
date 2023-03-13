@@ -1,0 +1,35 @@
+.dashboard-content {
+    width: 100%;
+    height: calc(100vh - 91px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__titlebox {
+        display: flex;
+        flex-direction: column;
+
+    }
+    &__title {
+        text-align: center;
+        font-size: 10rem;
+        margin: 0;
+
+    }
+    &__subtitle {
+        margin: 0;
+        text-align: center;
+
+    }
+    &__link {
+        font-size: 18px;
+        margin-top: 1rem;
+        text-decoration: none;
+        color: $medium-gray;
+        &:hover{
+            color: $secondary-color;
+            text-decoration: underline;
+        }
+
+    }
+}
