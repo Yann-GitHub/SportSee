@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import IconCycling from "../../assets/icon-cycling.svg"
 import IconWorkout from "../../assets/icon-workout.svg"
 import IconYoga from "../../assets/icon-yoga.svg"

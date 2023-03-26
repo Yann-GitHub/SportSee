@@ -4,13 +4,19 @@
 
 @import 'base/base';
 @import 'base/normalize';
-// @import 'base/typography';
 
 @import 'layout/header';
 @import 'layout/sharedLayout';
 @import 'layout/sideNav';
 
 @import 'components/banner';
+@import 'components/loader';
+@import 'components/chartActivity';
+@import 'components/chartAverage';
+@import 'components/chartPerformance';
+@import 'components/chartScore';
+@import 'components/keyWrapper';
+@import 'components/keyItem';
 
 @import 'pages/dashboard';
 @import 'pages/error';

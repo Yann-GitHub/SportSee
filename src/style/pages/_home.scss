@@ -1,10 +1,11 @@
 .home-content {
     width: 100%;
-    height: calc(100vh - 91px);
+    // height: calc(100vh - 91px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 70px;
     
     &__titlebox {
         display: flex;
@@ -14,24 +15,33 @@
 
     }
     &__title {
-        font-size: 2.3rem;
+        font-size: 48px;
+        font-weight: 500;
         margin: 0;
         padding: 0;
 
     }
     &__subtitle {
-        font-size: 1rem;
+        font-size: 18px;
         font-weight: 400;
         margin: 0;
         padding: 0;
+        padding-top: 10px;
 
     }
     &__usersbox {
+
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
 
 
+    }
+    &__data-category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     &__user{
         display: flex;
@@ -40,17 +50,29 @@
         align-items: center;
         padding: 2rem;
 
+
     }
     &__img {
-        width: 100%;
+        width: 40%;
 
     }
     &__link{
+        // width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         text-decoration: none;
         color: $medium-gray;
-        margin-top: 5px;
         &:hover {
             color: $secondary-color;
         }
+    }
+    &__name {
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 400;
     }
 }

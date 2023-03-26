@@ -8,16 +8,16 @@
     &__titlebox {
         display: flex;
         flex-direction: column;
-
     }
-    &__title {
-        text-align: center;
-        font-size: 10rem;
-        margin: 0;
+    &__img {
+        width: 600px
 
     }
     &__subtitle {
         margin: 0;
+        margin-top: 30px;
+        font-size: 25px;
+
         text-align: center;
 
     }

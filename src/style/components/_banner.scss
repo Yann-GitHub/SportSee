@@ -1,0 +1,17 @@
+.banner {
+    color: $primary-color;
+    &__bonjour {
+        font-size: 48px;
+        font-weight: 500;
+        margin: 0;
+    }
+    &__firstname {
+        color: $secondary-color;
+        font-size: 48px;
+    }
+    &__subtitle {
+        font-size: 18px;
+        margin: 0;
+        margin-top: 35px;
+    }
+}

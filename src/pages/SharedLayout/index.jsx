@@ -4,14 +4,11 @@ import SideNav from "../../components/SideNav"
 
 function SharedLayout() {
   return (
-    // <>
-    //   <Header />
-    //   <Outlet />
-    // </>
     <div className="sharedlayout">
       <Header />
+      <SideNav />
       <div className="sharedwrapper">
-        <SideNav />
+        {/* <SideNav /> */}
         <Outlet />
       </div>
     </div>

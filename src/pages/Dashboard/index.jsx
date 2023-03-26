@@ -1,17 +1,57 @@
-import { Link } from "react-router-dom"
+import { useParams, Navigate } from "react-router-dom"
+import Banner from "../../components/Banner"
+// import { useFetch } from "../../services/useFetch"
+// import Loader from "../../components/Loader"
+// import ErrorImg from "../../assets/server_down.svg"
+// import { useEffect, useState } from "react"
+import ChartActivity from "../../components/ChartActivity"
+import ChartAverage from "../../components/ChartAverage"
+import ChartPerformance from "../../components/ChartPerformance"
+import ChartScore from "../../components/ChartScore"
+import KeyWrapper from "../../components/KeyWrapper"
 
 function Dashboard() {
+  const { id } = useParams()
+
+  if (id !== "12" && id !== "18" && id !== "22" && id !== "28") {
+    return <Navigate to="/error" />
+  }
+
+  // In case of API call from Dashboard page
+  // const error = true
+  // if (error) {
+  //   return (
+  //     <div className="dashboard-content__errorWrapper">
+  //       <img
+  //         src={ErrorImg}
+  //         alt="erreur"
+  //         className="dashboard-content__errorImg"
+  //       />
+  //       <span className="dashboard-content__errorTxt">
+  //         Désolé, une erreur s'est produite. Veuillez réessayer plus tard.
+  //       </span>
+  //     </div>
+  //   )
+  // }
+
   return (
     <div className="dashboard-content">
-      <div className="dashboard-content__titlebox">
-        <h1 className="dashboard-content__title">Dashboard</h1>
-        <h2 className="dashboard-content__subtitle">
-          Félicitation ! Vous avez explosé vos objectifs hier 👏
-        </h2>
+      <Banner />
+      <div className="dashboard-content__chartsWrapper">
+        <div className="dashboard-content__chartsWrapperLeft">
+          <div className="dashboard-content__wrapperLeftTop">
+            <ChartActivity />
+          </div>
+          <div className="dashboard-content__wrapperLeftBottom">
+            <ChartAverage />
+            <ChartPerformance />
+            <ChartScore />
+          </div>
+        </div>
+        <div className="dashboard-content__chartsWrapperRight">
+          <KeyWrapper />
+        </div>
       </div>
-      <Link to="/" className="dashboard-content__link">
-        Retourner sur la page d'accueil
-      </Link>
     </div>
   )
 }

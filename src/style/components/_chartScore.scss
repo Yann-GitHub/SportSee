@@ -1,0 +1,12 @@
+.chartScore {
+    background-color: $light-gray;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    width: 30%;
+    &__legend {
+        font-size: 14px;
+        font-weight: 500;
+        color: $medium-gray;
+        padding-left: 8px;
+    }
+}

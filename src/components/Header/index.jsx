@@ -12,10 +12,10 @@ function Header() {
         <NavLink to="/" className="header__link">
           Accueil
         </NavLink>
-        <NavLink to="/" className="header__link">
+        <NavLink to="error-404" className="header__link">
           Profil
         </NavLink>
-        <NavLink to="/" className="header__link">
+        <NavLink to="error-404" className="header__link">
           Réglage
         </NavLink>
         <NavLink to="error-404" className="header__link">
