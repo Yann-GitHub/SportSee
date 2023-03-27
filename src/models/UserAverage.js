@@ -4,7 +4,7 @@ export class UserAverage {
   }
 
   get userId() {
-    return this._data.userId || null
+    return this._data?.userId || null
   }
 
   get sessions() {

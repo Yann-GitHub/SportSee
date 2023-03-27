@@ -8,13 +8,6 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  Label,
-  Line,
 } from "recharts"
 
 function ChartPerformance() {
@@ -31,60 +24,31 @@ function ChartPerformance() {
     return <div>Loading error!!</div>
   }
 
-  // const kind = formatedData?.kind
-  // console.log(kind)
-
-  const data = formatedData?.data
-  // console.log(data)
+  const reversedData = formatedData?.data?.reverse()
+  // console.log(reversedData)
 
   return (
     <div className="chartPerformance">
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        className="chartPerformance__responsive"
-      >
-        <RadarChart
-          outerRadius={90}
-          //   width={730}
-          //   height={250}
-          data={data}
-          cx="50%"
-          cy="50%"
-        >
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart outerRadius={90} data={reversedData} cx="50%" cy="50%">
           <PolarGrid radialLines={false} gridType="polygon" />
           <PolarAngleAxis
             dataKey="kind"
-            stroke="white"
-            fill="white"
-            // dy={3}
+            dy={3}
             tickLine={false}
             tick={{
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: 500,
+              fill: "white",
             }}
           />
-          <PolarRadiusAxis
-            angle={30}
-            domain={[0, 150]}
-            tick={false}
-            axisLine={false}
-          />
+          <PolarRadiusAxis tick={false} axisLine={false} />
           <Radar
-            // name="Mike"
             dataKey="value"
-            // stroke="#8884d8"
             fill="red"
             fillOpacity={0.6}
+            legendType="none"
           />
-          {/* <Radar
-            name="Lily"
-            dataKey="B"
-            stroke="#82ca9d"
-            fill="#82ca9d"
-            fillOpacity={0.6}
-          /> */}
-          <Legend />
         </RadarChart>
       </ResponsiveContainer>
     </div>

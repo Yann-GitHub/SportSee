@@ -1,14 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useUserData } from "../../services/useUserData"
 import Loader from "../Loader"
-import {
-  ResponsiveContainer,
-  RadialBarChart,
-  RadialBar,
-  PolarAngleAxis,
-  Tooltip,
-  Legend,
-} from "recharts"
+import { ResponsiveContainer, RadialBarChart, RadialBar } from "recharts"
 
 function ChartScore() {
   const { id } = useParams()
@@ -27,45 +20,59 @@ function ChartScore() {
   const todayScore = formatedData?.todayScore
   // console.log(todayScore)
 
-  const scoreValue = [{ value: todayScore * 100 }]
-  const newScore = todayScore * 100
+  const data = [
+    { name: "innerFullCircle", value: 100, fill: "#FBFBFB" },
+    { name: "outerScoreCircle", value: todayScore, fill: "red" },
+  ]
 
   return (
     <div className="chartScore">
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        // className="chartScore__responsive"
-      >
+      <h2 className="chartScore__title">Score</h2>
+      <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
-          data={scoreValue}
-          innerRadius={80}
+          innerRadius="35%"
+          outerRadius="100%"
+          startAngle={90}
+          endAngle={450}
           barSize={10}
-          startAngle={80}
-          endAngle={440}
-          fill={"#FF0000"}
+          data={data}
         >
-          <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-          <RadialBar dataKey="value" cornerRadius={5} background />
+          <RadialBar
+            // minAngle={155}
+            background={{ fill: "white" }}
+            dataKey="value"
+            // max={100}
+            cornerRadius="50%"
+          />
           <text
             x="50%"
             y="45%"
             textAnchor="middle"
             fontSize="26"
-            fontWeight="700"
+            fontWeight="500"
             fill="black"
           >
-            {newScore}%
+            {todayScore}%
           </text>
           <text
             x="50%"
             y="55%"
             textAnchor="middle"
             fontSize="16"
+            fontWeight="400"
             fill={"#74798C"}
-            fontWeight="500"
           >
-            de votre objectif
+            de votre
+          </text>
+          <text
+            x="50%"
+            y="65%"
+            textAnchor="middle"
+            fontSize="16"
+            fontWeight="400"
+            fill={"#74798C"}
+          >
+            objectif
           </text>
         </RadialBarChart>
       </ResponsiveContainer>

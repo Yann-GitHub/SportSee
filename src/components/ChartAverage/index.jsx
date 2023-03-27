@@ -4,12 +4,9 @@ import Loader from "../Loader"
 import {
   ResponsiveContainer,
   LineChart,
-  CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  Label,
   Line,
 } from "recharts"
 
@@ -28,57 +25,60 @@ function ChartAverage() {
   }
 
   const sessions = formatedData?.sessions
+  const daysOfWeek = ["L ", "M ", "M ", "J ", "V ", "S ", "D "]
 
   return (
     <div className="chartAverage">
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        className="chartAverage__responsive"
-      >
+      <h2 className="chartAverage__title">Durée moyenne des sessions</h2>
+      <div className="chartAverage__days-wrapper">
+        {daysOfWeek.map((day) => (
+          <div className="chartAverage__days-item">{day}</div>
+        ))}
+      </div>
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          // width={730}
-          //   height={250}
           data={sessions}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
         >
-          <XAxis
-            dataKey="day"
-            // stroke="rgba(255, 255, 255, 0.6)"
+          <XAxis hide={true} tickLine={false} axisLine={false} />
+          <YAxis
+            hide={true}
             axisLine={false}
             tickLine={false}
-            // tick={{ fill: "white" }}
-            // domain={[0, 0]}
-            interval={"preserveStartEnd"}
-            padding={{ left: 30, right: 30 }}
-            tick={{
-              //   dx: window.innerWidth > 1340 ? 20 : 12,
-              fill: "white",
-              fontSize: 12,
+            domain={["dataMin-30", "dataMax+50"]}
+          />
+          <Tooltip
+            cursor={{
+              stroke: "black",
+              strokeOpacity: 0.1,
+              strokeWidth: 80,
+              height: 263,
+            }}
+            wrapperStyle={{ outlineStyle: "none" }}
+            labelStyle={{ display: "none" }}
+            formatter={(value) => [value]}
+            contentStyle={{
+              backgroundColor: "#FBFBFB",
+              padding: 5,
+            }}
+            itemStyle={{
+              color: "black",
+              fontSize: 9,
               fontWeight: 500,
             }}
           />
-          <YAxis
-            dataKey="sessionLength"
-            axisLine={false}
-            tickLine={false}
-            domain={["dataMin", "dataMax + 25"]}
-            hide={true}
-          />
-          <Tooltip />
-          {/* <Legend /> */}
-          {/* <Line type="monotone" dataKey="day" stroke="#8884d8" /> */}
           <Line
             type="monotone"
             dataKey="sessionLength"
-            stroke="rgba(255, 255, 255, 0.6)"
+            stroke="white"
+            strokeOpacity="0.6"
             strokeWidth={2}
             dot={false}
+            unit=" min"
             activeDot={{
               fill: "white",
-              stroke: "rgba(255,255,255, 0.3)",
+              stroke: "rgba(255,255,255, 0.2)",
               strokeWidth: 10,
-              r: 4,
             }}
           />
         </LineChart>
@@ -86,5 +86,4 @@ function ChartAverage() {
     </div>
   )
 }
-
 export default ChartAverage

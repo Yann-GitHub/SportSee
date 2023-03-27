@@ -9,7 +9,6 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  Label,
   Bar,
 } from "recharts"
 
@@ -31,16 +30,14 @@ function ChartActivity() {
 
   return (
     <div className="chartActivity">
-      {/* <p className="chartActivity__title">Activité quotidienne</p> */}
+      <h2 className="chartActivity__title">Activité quotidienne</h2>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          //   width={500}
-          //   height={300}
           data={sessions}
           barGap={8}
           barSize="10%"
           margin={{
-            top: 0,
+            top: 22,
             right: 15,
             left: 0,
             bottom: 22,
@@ -48,62 +45,73 @@ function ChartActivity() {
         >
           <CartesianGrid vertical={false} strokeDasharray="3 3" />
           <XAxis
-            tick={{ fill: "#9B9EAC", fontSize: 14, fontWeight: 500 }}
+            axisLine={true}
             stroke="#DEDEDE"
-            dataKey={"dayNumber"}
+            dataKey="dayNumber"
+            tick={{ fill: "#9B9EAC", fontSize: 14, fontWeight: 500 }}
             tickSize={16}
             tickLine={false}
-            axisLine={true}
-            domain={["dataMin", "dataMax"]}
-            // tickMargin={30}
           />
           <YAxis
             axisLine={false}
-            tickLine={false}
             orientation="right"
             dataKey="kilogram"
-            interval={"preserveStartEnd"}
-            yAxisId={1}
+            tick={{ fill: "#9B9EAC", fontSize: 14, fontWeight: 500 }}
+            tickLine={false}
             domain={["dataMin - 10", "dataMax + 10"]}
-            tick={{ fontSize: 14, fontWeight: 500 }}
-            stroke="#9B9EAC"
-            width={35}
+            yAxisId={1}
+            // interval={"preserveStartEnd"}
           />
           <YAxis
             hide={true}
-            yAxisId={2}
             dataKey="calories"
+            yAxisId={2}
             domain={["dataMin - 15", "dataMax + 15"]}
           />
-          <Tooltip />
+          <Tooltip
+            itemStyle={{
+              color: "white",
+              fontSize: 9,
+              fontWeight: 500,
+            }}
+            cursor={{
+              fill: "rgba(196, 196, 196, 0.5)",
+            }}
+            labelStyle={{ display: "none" }}
+            wrapperStyle={{ outlineStyle: "none" }}
+            formatter={(value, name, unit) => [value, unit]}
+            contentStyle={{
+              backgroundColor: "#E60000",
+            }}
+          />
           <Legend
-            formatter={(value, entry, index) => (
-              <span className="chartActivity__legend">{value}</span>
-            )}
             height={70}
             verticalAlign="top"
             align="right"
             iconSize={9}
             iconType={"circle"}
+            formatter={(value) => (
+              <span className="chartActivity__legend">{value}</span>
+            )}
             className="chartActivity__legend"
           />
           <Bar
-            barSize={7}
-            dataKey="kilogram"
             name="Poids (kg)"
+            dataKey="kilogram"
+            barSize={7}
+            fill="#282D30"
             radius={[3, 3, 0, 0]}
             yAxisId={1}
-            fill="#282D30"
-            // className="chartActivity__bar-kg"
+            unit=" kg"
           />
           <Bar
-            barSize={7}
-            dataKey="calories"
             name="Calories brûlées (kCal)"
+            dataKey="calories"
+            barSize={7}
+            fill="#FF0101"
             radius={[3, 3, 0, 0]}
             yAxisId={2}
-            fill="#FF0101"
-            // className="chartActivity__bar-cal"
+            unit=" Kcal"
           />
         </BarChart>
       </ResponsiveContainer>

@@ -15,7 +15,15 @@ export class UserData {
     return this._data?.keyData || null
   }
 
+  // get todayScore() {
+  //   return this._data?.todayScore || this._data?.score || null
+  // }
+
   get todayScore() {
-    return this._data?.todayScore || this._data?.score || null
+    const score = this._data?.todayScore || this._data?.score || null
+    if (score !== null) {
+      return score * 100
+    }
+    return null
   }
 }

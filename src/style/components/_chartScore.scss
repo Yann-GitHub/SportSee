@@ -3,10 +3,16 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     border-radius: 5px;
     width: 30%;
-    &__legend {
-        font-size: 14px;
+    height: 263px;
+    position: relative;
+    &__title {
+        font-size: 15px;
         font-weight: 500;
-        color: $medium-gray;
-        padding-left: 8px;
+        color: $dark-gray;
+        position: absolute;
+        top: 10px;
+        left: 32px;
+        padding: 0;
+
     }
 }
