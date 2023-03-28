@@ -1,6 +1,3 @@
-import { useParams } from "react-router-dom"
-import { useUserAverage } from "../../services/useUserAverage"
-import Loader from "../Loader"
 import {
   ResponsiveContainer,
   LineChart,
@@ -10,29 +7,19 @@ import {
   Line,
 } from "recharts"
 
-function ChartAverage() {
-  const { id } = useParams()
+function ChartAverage({ sessions }) {
+  // console.log(sessions)
 
-  const { formatedData, isDataLoading, error } = useUserAverage(id)
-  // console.log(formatedData)
-
-  if (isDataLoading) {
-    return <Loader />
-  }
-
-  if (error) {
-    return <div>Loading error!!</div>
-  }
-
-  const sessions = formatedData?.sessions
   const daysOfWeek = ["L ", "M ", "M ", "J ", "V ", "S ", "D "]
 
   return (
     <div className="chartAverage">
       <h2 className="chartAverage__title">Durée moyenne des sessions</h2>
       <div className="chartAverage__days-wrapper">
-        {daysOfWeek.map((day) => (
-          <div className="chartAverage__days-item">{day}</div>
+        {daysOfWeek.map((day, index) => (
+          <div className="chartAverage__days-item" key={index}>
+            {day}
+          </div>
         ))}
       </div>
       <ResponsiveContainer width="100%" height="100%">

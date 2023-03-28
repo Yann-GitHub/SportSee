@@ -1,6 +1,3 @@
-import { useParams } from "react-router-dom"
-import { useUserPerformance } from "../../services/useUserPerformance"
-import Loader from "../Loader"
 import {
   ResponsiveContainer,
   RadarChart,
@@ -10,21 +7,7 @@ import {
   Radar,
 } from "recharts"
 
-function ChartPerformance() {
-  const { id } = useParams()
-
-  const { formatedData, isDataLoading, error } = useUserPerformance(id)
-  // console.log(formatedData)
-
-  if (isDataLoading) {
-    return <Loader />
-  }
-
-  if (error) {
-    return <div>Loading error!!</div>
-  }
-
-  const reversedData = formatedData?.data?.reverse()
+function ChartPerformance({ reversedData }) {
   // console.log(reversedData)
 
   return (

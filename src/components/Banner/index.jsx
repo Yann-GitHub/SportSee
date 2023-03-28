@@ -1,22 +1,5 @@
-import { useParams } from "react-router-dom"
-import { useUserData } from "../../services/useUserData"
-import Loader from "../Loader"
-
-function Banner() {
-  const { id } = useParams()
-  console.log(typeof id)
-  const { formatedData, isDataLoading, error } = useUserData(id)
-  // console.log(formatedData)
-
-  if (isDataLoading) {
-    return <Loader />
-  }
-
-  if (error) {
-    return <div>Loading error!!</div>
-  }
-
-  const firstName = formatedData?.userInfos?.firstName
+function Banner({ firstName }) {
+  // console.log(firstName)
 
   return (
     <div className="banner">

@@ -1,6 +1,3 @@
-import { useParams } from "react-router-dom"
-import { useUserActivity } from "../../services/useUserActivity"
-import Loader from "../Loader"
 import {
   ResponsiveContainer,
   BarChart,
@@ -12,21 +9,8 @@ import {
   Bar,
 } from "recharts"
 
-function ChartActivity() {
-  const { id } = useParams()
-
-  const { formatedData, isDataLoading, error } = useUserActivity(id)
-  // console.log(formatedData)
-
-  if (isDataLoading) {
-    return <Loader />
-  }
-
-  if (error) {
-    return <div>Loading error!!</div>
-  }
-
-  const sessions = formatedData?.sessions
+function ChartActivity({ sessions }) {
+  // console.log(sessions)
 
   return (
     <div className="chartActivity">
@@ -60,7 +44,6 @@ function ChartActivity() {
             tickLine={false}
             domain={["dataMin - 10", "dataMax + 10"]}
             yAxisId={1}
-            // interval={"preserveStartEnd"}
           />
           <YAxis
             hide={true}

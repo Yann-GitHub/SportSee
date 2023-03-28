@@ -1,23 +1,6 @@
-import { useParams } from "react-router-dom"
-import { useUserData } from "../../services/useUserData"
-import Loader from "../Loader"
 import { ResponsiveContainer, RadialBarChart, RadialBar } from "recharts"
 
-function ChartScore() {
-  const { id } = useParams()
-
-  const { formatedData, isDataLoading, error } = useUserData(id)
-  // console.log(formatedData)
-
-  if (isDataLoading) {
-    return <Loader />
-  }
-
-  if (error) {
-    return <div>Loading error!!</div>
-  }
-
-  const todayScore = formatedData?.todayScore
+function ChartScore({ todayScore }) {
   // console.log(todayScore)
 
   const data = [

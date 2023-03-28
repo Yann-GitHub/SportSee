@@ -1,14 +1,20 @@
 import { useParams, Navigate } from "react-router-dom"
-import Banner from "../../components/Banner"
+import BannerContainer from "../../containers/BannerContainer"
+import ChartActivityContainer from "../../containers/ChartActivityContainer"
+import ChartAverageContainer from "../../containers/ChartAverageContainer"
+import ChartPerformanceContainer from "../../containers/ChartPerformanceContainer"
+import ChartScoreContainer from "../../containers/ChartScoreContainer"
+import KeyItemContainer from "../../containers/KeyItemContainer"
+// import Banner from "../../components/Banner"
 // import { useFetch } from "../../services/useFetch"
 // import Loader from "../../components/Loader"
 // import ErrorImg from "../../assets/server_down.svg"
 // import { useEffect, useState } from "react"
-import ChartActivity from "../../components/ChartActivity"
-import ChartAverage from "../../components/ChartAverage"
-import ChartPerformance from "../../components/ChartPerformance"
-import ChartScore from "../../components/ChartScore"
-import KeyWrapper from "../../components/KeyWrapper"
+// import ChartActivity from "../../components/ChartActivity"
+// import ChartAverage from "../../components/ChartAverage"
+// import ChartPerformance from "../../components/ChartPerformance"
+// import ChartScore from "../../components/ChartScore"
+// import KeyWrapper from "../../components/KeyWrapper"
 
 function Dashboard() {
   const { id } = useParams()
@@ -36,20 +42,20 @@ function Dashboard() {
 
   return (
     <div className="dashboard-content">
-      <Banner />
+      <BannerContainer />
       <div className="dashboard-content__chartsWrapper">
         <div className="dashboard-content__chartsWrapperLeft">
           <div className="dashboard-content__wrapperLeftTop">
-            <ChartActivity />
+            <ChartActivityContainer />
           </div>
           <div className="dashboard-content__wrapperLeftBottom">
-            <ChartAverage />
-            <ChartPerformance />
-            <ChartScore />
+            <ChartAverageContainer />
+            <ChartPerformanceContainer />
+            <ChartScoreContainer />
           </div>
         </div>
         <div className="dashboard-content__chartsWrapperRight">
-          <KeyWrapper />
+          <KeyItemContainer />
         </div>
       </div>
     </div>

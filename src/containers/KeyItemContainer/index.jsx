@@ -4,10 +4,10 @@ import IconProteine from "../../assets/icon-proteines.svg"
 import IconLipide from "../../assets/icon-lipides.svg"
 import IconGlucide from "../../assets/icon-glucides.svg"
 import IconCalorie from "../../assets/icon-calories.svg"
-import KeyItem from "../KeyItem"
-import Loader from "../Loader"
+import KeyItem from "../../components/KeyItem"
+import Loader from "../../components/Loader"
 
-function KeyWrapper() {
+function KeyItemContainer() {
   const { id } = useParams()
 
   const { formatedData, isDataLoading, error } = useUserData(id)
@@ -63,4 +63,4 @@ function KeyWrapper() {
   )
 }
 
-export default KeyWrapper
+export default KeyItemContainer
