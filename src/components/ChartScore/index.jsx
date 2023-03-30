@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 import { ResponsiveContainer, RadialBarChart, RadialBar } from "recharts"
 
 function ChartScore({ todayScore }) {
@@ -61,6 +63,10 @@ function ChartScore({ todayScore }) {
       </ResponsiveContainer>
     </div>
   )
+}
+
+ChartScore.propTypes = {
+  todayScore: PropTypes.number.isRequired,
 }
 
 export default ChartScore

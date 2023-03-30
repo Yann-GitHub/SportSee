@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 import {
   ResponsiveContainer,
   RadarChart,
@@ -36,6 +38,15 @@ function ChartPerformance({ reversedData }) {
       </ResponsiveContainer>
     </div>
   )
+}
+
+ChartPerformance.propTypes = {
+  reversedData: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ).isRequired,
 }
 
 export default ChartPerformance

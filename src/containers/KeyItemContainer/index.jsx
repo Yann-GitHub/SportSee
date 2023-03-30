@@ -29,6 +29,11 @@ function KeyItemContainer() {
   const glucides = keyData?.carbohydrateCount
   const lipides = keyData?.lipidCount
 
+  // return KeyItem only if all data
+  if (!calories || !proteines || !glucides || !lipides) {
+    return <Loader />
+  }
+
   return (
     <div className="keyWrapper">
       <KeyItem

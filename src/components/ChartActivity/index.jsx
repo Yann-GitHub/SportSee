@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import {
   ResponsiveContainer,
   BarChart,
@@ -100,6 +101,17 @@ function ChartActivity({ sessions }) {
       </ResponsiveContainer>
     </div>
   )
+}
+
+ChartActivity.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+      dayNumber: PropTypes.number,
+    })
+  ).isRequired,
 }
 
 export default ChartActivity

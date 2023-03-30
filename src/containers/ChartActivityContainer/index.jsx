@@ -20,6 +20,11 @@ function ChartActivityContainer() {
   const sessions = formatedData?.sessions
   //   console.log(sessions)
 
+  // return ChartActivity only if sessions
+  if (!sessions) {
+    return <Loader />
+  }
+
   return <ChartActivity sessions={sessions} />
 }
 

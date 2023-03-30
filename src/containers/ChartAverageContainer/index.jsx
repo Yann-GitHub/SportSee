@@ -20,6 +20,11 @@ function ChartAverageContainer() {
   const sessions = formatedData?.sessions
   //   console.log(sessions)
 
+  // return ChartAverage only if sessions
+  if (!sessions) {
+    return <Loader />
+  }
+
   return <ChartAverage sessions={sessions} />
 }
 

@@ -20,6 +20,11 @@ function ChartPerformanceContainer() {
   const reversedData = formatedData?.data?.reverse()
   // console.log(reversedData)
 
+  // return ChartPerformance only if reversedData
+  if (!reversedData) {
+    return <Loader />
+  }
+
   return <ChartPerformance reversedData={reversedData} />
 }
 

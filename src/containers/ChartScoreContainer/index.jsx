@@ -20,6 +20,11 @@ function ChartScoreContainer() {
   const todayScore = formatedData?.todayScore
   // console.log(todayScore)
 
+  // return ChartScore only if todayScore
+  if (!todayScore) {
+    return <Loader />
+  }
+
   return <ChartScore todayScore={todayScore} />
 }
 

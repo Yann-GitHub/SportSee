@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 import {
   ResponsiveContainer,
   LineChart,
@@ -73,4 +75,14 @@ function ChartAverage({ sessions }) {
     </div>
   )
 }
+
+ChartAverage.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      sessionLength: PropTypes.number,
+    })
+  ).isRequired,
+}
+
 export default ChartAverage

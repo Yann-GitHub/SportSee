@@ -20,6 +20,11 @@ function BannerContainer() {
   const firstName = formatedData?.userInfos?.firstName
   //   console.log(firstName)
 
+  // return Banner only if firstName
+  if (!firstName) {
+    return <Loader />
+  }
+
   return <Banner firstName={firstName} />
 }
 

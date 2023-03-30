@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 function Banner({ firstName }) {
   // console.log(firstName)
 
@@ -11,6 +13,14 @@ function Banner({ firstName }) {
       </p>
     </div>
   )
+}
+
+Banner.propTypes = {
+  firstName: PropTypes.string.isRequired,
+}
+
+Banner.defaultProps = {
+  firstName: "Unknow",
 }
 
 export default Banner
