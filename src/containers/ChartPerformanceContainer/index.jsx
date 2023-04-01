@@ -3,6 +3,12 @@ import { useUserPerformance } from "../../services/useUserPerformance"
 import Loader from "../../components/Loader"
 import ChartPerformance from "../../components/ChartPerformance"
 
+/**
+ * A container component fetches user performance data and display a ChartPerformance component.
+ *
+ * @returns {JSX.Element} - React component - The ChartPerformance component with user performance data.
+ */
+
 function ChartPerformanceContainer() {
   const { id } = useParams()
 

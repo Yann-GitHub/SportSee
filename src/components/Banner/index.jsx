@@ -1,5 +1,13 @@
 import PropTypes from "prop-types"
 
+/**
+ * Banner component that displays a greeting message and a subtitle.
+ *
+ * @param {object} props - The props object.
+ * @param {string} props.firstName - The first name of the user to display in the greeting message.
+ * @returns {JSX.Element} - The rendered banner component
+ */
+
 function Banner({ firstName }) {
   // console.log(firstName)
 

@@ -2,6 +2,14 @@ import PropTypes from "prop-types"
 
 import { ResponsiveContainer, RadialBarChart, RadialBar } from "recharts"
 
+/**
+ * Component that displays the daily score.
+ *
+ * @param {Object} props - The props object.
+ * @param {number} props.todayScore - The daily score to be displayed.
+ * @returns {JSX.Element} - React Component - Daily score chart.
+ */
+
 function ChartScore({ todayScore }) {
   // console.log(todayScore)
 

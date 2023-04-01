@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react"
 
+/**
+ * Custom hook for fetching data from a given URL using the fetch API.
+ *
+ * @param {string} url - The URL to fetch the data from.
+ * @returns {{
+ * isDataLoading: boolean,
+ * data: Object,
+ * error: boolean
+ * }} - An object containing the fetched data, a boolean indicating if the data is currently being loaded, and any error that occurred during the fetch operation.
+ */
+
 export function useFetch(url) {
   const [data, setData] = useState({})
   const [isDataLoading, setisDataLoading] = useState(false)
@@ -23,8 +34,8 @@ export function useFetch(url) {
         console.log(err.message)
         setError(err.message)
       } finally {
+        setisDataLoading(false)
       }
-      setisDataLoading(false)
     }
     fetchData()
   }, [url])

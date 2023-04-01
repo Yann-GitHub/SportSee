@@ -7,6 +7,12 @@ import IconCalorie from "../../assets/icon-calories.svg"
 import KeyItem from "../../components/KeyItem"
 import Loader from "../../components/Loader"
 
+/**
+ * A container component that fetches the key nutritional data and display a multiple KeyItem components.
+ *
+ * @returns {JSX.Element} - React component - KeyItem components with nutritional data.
+ */
+
 function KeyItemContainer() {
   const { id } = useParams()
 

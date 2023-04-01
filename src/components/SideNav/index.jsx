@@ -3,6 +3,12 @@ import IconWorkout from "../../assets/icon-workout.svg"
 import IconYoga from "../../assets/icon-yoga.svg"
 import IconSwimming from "../../assets/icon-swimming.svg"
 
+/**
+ * Component that displays the side navigation menu.
+ *
+ * @returns {JSX.Element} - React component - SideNav.
+ */
+
 function SideNav() {
   return (
     <div className="sidenav">

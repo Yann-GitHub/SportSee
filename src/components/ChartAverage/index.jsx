@@ -9,6 +9,22 @@ import {
   Line,
 } from "recharts"
 
+/**
+ * The daily time session object.
+ *
+ * @typedef {Object} Session
+ * @property {number} day - The day number corresponding to the session.
+ * @property {number} sessionLength - The length corresponding to the session.
+ */
+
+/**
+ * Component that displays a chart of days and the length of the session.
+ *
+ * @param {Object} props - The props object.
+ * @param {Session[]} props.sessions - An array of objects representing daily length sessions.
+ * @returns {JSX.Element} - React component - Daily length session chart.
+ */
+
 function ChartAverage({ sessions }) {
   // console.log(sessions)
 

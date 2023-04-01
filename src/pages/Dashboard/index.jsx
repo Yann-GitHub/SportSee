@@ -5,34 +5,20 @@ import ChartAverageContainer from "../../containers/ChartAverageContainer"
 import ChartPerformanceContainer from "../../containers/ChartPerformanceContainer"
 import ChartScoreContainer from "../../containers/ChartScoreContainer"
 import KeyItemContainer from "../../containers/KeyItemContainer"
-// import { useFetch } from "../../services/useFetch"
-// import Loader from "../../components/Loader"
-// import ErrorImg from "../../assets/server_down.svg"
-// import { useEffect, useState } from "react"
+
+/**
+ * Component representing the dashboard page.
+ *
+ * @returns {JSX.Element} - The rendered dashboard page.
+ */
 
 function Dashboard() {
   const { id } = useParams()
 
+  // Redirects to the error page if the ID is not valid.
   if (id !== "12" && id !== "18" && id !== "22" && id !== "28") {
     return <Navigate to="/error" />
   }
-
-  // In case of API call from Dashboard page
-  // const error = true
-  // if (error) {
-  //   return (
-  //     <div className="dashboard-content__errorWrapper">
-  //       <img
-  //         src={ErrorImg}
-  //         alt="erreur"
-  //         className="dashboard-content__errorImg"
-  //       />
-  //       <span className="dashboard-content__errorTxt">
-  //         Désolé, une erreur s'est produite. Veuillez réessayer plus tard.
-  //       </span>
-  //     </div>
-  //   )
-  // }
 
   return (
     <div className="dashboard-content">

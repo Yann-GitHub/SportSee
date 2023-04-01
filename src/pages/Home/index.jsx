@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
-// import UserImage from "../../assets/profile.png"
 import AvatarMale1 from "../../assets/male_avatar1.svg"
 import AvatarMale2 from "../../assets/male_avatar2.svg"
 import AvatarFemale1 from "../../assets/female_avatar1.svg"
 import AvatarFemale2 from "../../assets/female_avatar2.svg"
+
+/**
+ * Composant representing the home page.
+ *
+ * @return {JSX.Element} - The rendered home page.
+ */
 
 function Home() {
   return (

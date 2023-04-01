@@ -10,6 +10,24 @@ import {
   Bar,
 } from "recharts"
 
+/**
+ * The daily activity session object.
+ *
+ * @typedef {Object} Session
+ * @property {string} day - The session date in 'YYYY-MM-DD' format.
+ * @property {number} kilogram - The weight (in kilograms) recorded during the session.
+ * @property {number} calories - The number of calories burned during the session.
+ * @property {number} dayNumber - The day number corresponding to the session.
+ */
+
+/**
+ * Component that displays a daily activity chart (weight and calories).
+ *
+ * @param {Object} props - The props object.
+ * @param {Session[]} props.sessions - An array of objects representing daily activity sessions.
+ * @returns {JSX.Element} - React component - Daily activity chart.
+ */
+
 function ChartActivity({ sessions }) {
   // console.log(sessions)
 

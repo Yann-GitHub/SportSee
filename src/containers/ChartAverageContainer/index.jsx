@@ -3,6 +3,12 @@ import { useUserAverage } from "../../services/useUserAverage"
 import Loader from "../../components/Loader"
 import ChartAverage from "../../components/ChartAverage"
 
+/**
+ * A container component that fetches user average data and display an ChartAverage component.
+ *
+ * @returns {JSX.Element} - React component - The ChartAverage component with user average data.
+ */
+
 function ChartAverageContainer() {
   const { id } = useParams()
 

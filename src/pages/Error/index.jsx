@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom"
 import ImgError from "../../assets/page_not_found.svg"
 
+/**
+ * Component representing the Error page.
+ *
+ * @returns {JSX.Element} - The Error page component.
+ */
+
 function Error() {
   return (
     <div className="error-content">

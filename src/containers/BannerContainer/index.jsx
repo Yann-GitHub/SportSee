@@ -3,6 +3,12 @@ import { useUserData } from "../../services/useUserData"
 import Loader from "../../components/Loader"
 import Banner from "../../components/Banner"
 
+/**
+ * Container component that fetches user data and displays a banner.
+ *
+ * @returns {JSX.Element} - React component - BannerContainer.
+ */
+
 function BannerContainer() {
   const { id } = useParams()
 

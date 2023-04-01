@@ -1,13 +1,15 @@
 import PropTypes from "prop-types"
 
 /**
- * Component used for KeyItemContainer
- * @param {string} props.category
- * @param {number} props.value
- * @param {string} props.unit
- * @param {string} props.color
- * @param {string} props.icon
- * @returns {JSX}
+ * Component that displays a keyItem card with a category, value, unit, color, and icon.
+ *
+ * @param {Object} props - The props object.
+ * @param {string} props.category - The category of the key item.
+ * @param {number} props.value - The value of the key item.
+ * @param {string} props.unit - The unit of the key item.
+ * @param {string} props.color - The color of the key item.
+ * @param {string} props.icon - The icon of the key item.
+ * @returns {JSX.Element} - React component - KeyItem card.
  */
 
 function KeyItem({ category, value, unit, color, icon }) {
@@ -45,11 +47,11 @@ KeyItem.propTypes = {
 }
 
 KeyItem.defaultProps = {
-  category: "Unknow ",
-  value: "Unknow ",
-  unit: "Unknow ",
-  color: "Unknow ",
-  icon: "Unknow ",
+  category: "Unknown ",
+  value: "Unknown ",
+  unit: "Unknown ",
+  color: "Unknown ",
+  icon: "Unknown ",
 }
 
 export default KeyItem
