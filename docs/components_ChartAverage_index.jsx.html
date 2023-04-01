@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/ChartAverage/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/ChartAverage/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types"
+
+import {
+  ResponsiveContainer,
+  LineChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Line,
+} from "recharts"
+
+/**
+ * The daily time session object.
+ *
+ * @typedef {Object} Session
+ * @property {number} day - The day number corresponding to the session.
+ * @property {number} sessionLength - The length corresponding to the session.
+ */
+
+/**
+ * Component that displays a chart of days and the length of the session.
+ *
+ * @param {Object} props - The props object.
+ * @param {Session[]} props.sessions - An array of objects representing daily length sessions.
+ * @returns {JSX.Element} - React component - Daily length session chart.
+ */
+
+function ChartAverage({ sessions }) {
+  // console.log(sessions)
+
+  const daysOfWeek = ["L ", "M ", "M ", "J ", "V ", "S ", "D "]
+
+  return (
+    &lt;div className="chartAverage">
+      &lt;h2 className="chartAverage__title">Durée moyenne des sessions&lt;/h2>
+      &lt;div className="chartAverage__days-wrapper">
+        {daysOfWeek.map((day, index) => (
+          &lt;div className="chartAverage__days-item" key={index}>
+            {day}
+          &lt;/div>
+        ))}
+      &lt;/div>
+      &lt;ResponsiveContainer width="100%" height="100%">
+        &lt;LineChart
+          data={sessions}
+          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+        >
+          &lt;XAxis hide={true} tickLine={false} axisLine={false} />
+          &lt;YAxis
+            hide={true}
+            axisLine={false}
+            tickLine={false}
+            domain={["dataMin-30", "dataMax+50"]}
+          />
+          &lt;Tooltip
+            cursor={{
+              stroke: "black",
+              strokeOpacity: 0.1,
+              strokeWidth: 80,
+              height: 263,
+            }}
+            wrapperStyle={{ outlineStyle: "none" }}
+            labelStyle={{ display: "none" }}
+            formatter={(value) => [value]}
+            contentStyle={{
+              backgroundColor: "#FBFBFB",
+              padding: 5,
+            }}
+            itemStyle={{
+              color: "black",
+              fontSize: 9,
+              fontWeight: 500,
+            }}
+          />
+          &lt;Line
+            type="monotone"
+            dataKey="sessionLength"
+            stroke="white"
+            strokeOpacity="0.6"
+            strokeWidth={2}
+            dot={false}
+            unit=" min"
+            activeDot={{
+              fill: "white",
+              stroke: "rgba(255,255,255, 0.2)",
+              strokeWidth: 10,
+            }}
+          />
+        &lt;/LineChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
+
+ChartAverage.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      sessionLength: PropTypes.number,
+    })
+  ).isRequired,
+}
+
+export default ChartAverage
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="UserActivity.html">UserActivity</a></li><li><a href="UserAverage.html">UserAverage</a></li><li><a href="UserData.html">UserData</a></li><li><a href="UserPerformance.html">UserPerformance</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#BannerContainer">BannerContainer</a></li><li><a href="global.html#ChartActivity">ChartActivity</a></li><li><a href="global.html#ChartActivityContainer">ChartActivityContainer</a></li><li><a href="global.html#ChartAverage">ChartAverage</a></li><li><a href="global.html#ChartAverageContainer">ChartAverageContainer</a></li><li><a href="global.html#ChartPerformance">ChartPerformance</a></li><li><a href="global.html#ChartPerformanceContainer">ChartPerformanceContainer</a></li><li><a href="global.html#ChartScore">ChartScore</a></li><li><a href="global.html#ChartScoreContainer">ChartScoreContainer</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#KeyItem">KeyItem</a></li><li><a href="global.html#KeyItemContainer">KeyItemContainer</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#SharedLayout">SharedLayout</a></li><li><a href="global.html#SideNav">SideNav</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUserActivity">useUserActivity</a></li><li><a href="global.html#useUserAverage">useUserAverage</a></li><li><a href="global.html#useUserData">useUserData</a></li><li><a href="global.html#useUserPerformance">useUserPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Apr 01 2023 18:22:40 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

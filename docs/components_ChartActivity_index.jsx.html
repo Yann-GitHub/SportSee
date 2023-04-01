@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/ChartActivity/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/ChartActivity/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types"
+import {
+  ResponsiveContainer,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+} from "recharts"
+
+/**
+ * The daily activity session object.
+ *
+ * @typedef {Object} Session
+ * @property {string} day - The session date in 'YYYY-MM-DD' format.
+ * @property {number} kilogram - The weight (in kilograms) recorded during the session.
+ * @property {number} calories - The number of calories burned during the session.
+ * @property {number} dayNumber - The day number corresponding to the session.
+ */
+
+/**
+ * Component that displays a daily activity chart (weight and calories).
+ *
+ * @param {Object} props - The props object.
+ * @param {Session[]} props.sessions - An array of objects representing daily activity sessions.
+ * @returns {JSX.Element} - React component - Daily activity chart.
+ */
+
+function ChartActivity({ sessions }) {
+  // console.log(sessions)
+
+  return (
+    &lt;div className="chartActivity">
+      &lt;h2 className="chartActivity__title">Activité quotidienne&lt;/h2>
+      &lt;ResponsiveContainer width="100%" height="100%">
+        &lt;BarChart
+          data={sessions}
+          barGap={8}
+          barSize="10%"
+          margin={{
+            top: 22,
+            right: 15,
+            left: 0,
+            bottom: 22,
+          }}
+        >
+          &lt;CartesianGrid vertical={false} strokeDasharray="3 3" />
+          &lt;XAxis
+            axisLine={true}
+            stroke="#DEDEDE"
+            dataKey="dayNumber"
+            tick={{ fill: "#9B9EAC", fontSize: 14, fontWeight: 500 }}
+            tickSize={16}
+            tickLine={false}
+          />
+          &lt;YAxis
+            axisLine={false}
+            orientation="right"
+            dataKey="kilogram"
+            tick={{ fill: "#9B9EAC", fontSize: 14, fontWeight: 500 }}
+            tickLine={false}
+            domain={["dataMin - 10", "dataMax + 10"]}
+            yAxisId={1}
+          />
+          &lt;YAxis
+            hide={true}
+            dataKey="calories"
+            yAxisId={2}
+            domain={["dataMin - 15", "dataMax + 15"]}
+          />
+          &lt;Tooltip
+            itemStyle={{
+              color: "white",
+              fontSize: 9,
+              fontWeight: 500,
+            }}
+            cursor={{
+              fill: "rgba(196, 196, 196, 0.5)",
+            }}
+            labelStyle={{ display: "none" }}
+            wrapperStyle={{ outlineStyle: "none" }}
+            formatter={(value, name, unit) => [value, unit]}
+            contentStyle={{
+              backgroundColor: "#E60000",
+            }}
+          />
+          &lt;Legend
+            height={70}
+            verticalAlign="top"
+            align="right"
+            iconSize={9}
+            iconType={"circle"}
+            formatter={(value) => (
+              &lt;span className="chartActivity__legend">{value}&lt;/span>
+            )}
+            className="chartActivity__legend"
+          />
+          &lt;Bar
+            name="Poids (kg)"
+            dataKey="kilogram"
+            barSize={7}
+            fill="#282D30"
+            radius={[3, 3, 0, 0]}
+            yAxisId={1}
+            unit=" kg"
+          />
+          &lt;Bar
+            name="Calories brûlées (kCal)"
+            dataKey="calories"
+            barSize={7}
+            fill="#FF0101"
+            radius={[3, 3, 0, 0]}
+            yAxisId={2}
+            unit=" Kcal"
+          />
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
+
+ChartActivity.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+      dayNumber: PropTypes.number,
+    })
+  ).isRequired,
+}
+
+export default ChartActivity
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="UserActivity.html">UserActivity</a></li><li><a href="UserAverage.html">UserAverage</a></li><li><a href="UserData.html">UserData</a></li><li><a href="UserPerformance.html">UserPerformance</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#BannerContainer">BannerContainer</a></li><li><a href="global.html#ChartActivity">ChartActivity</a></li><li><a href="global.html#ChartActivityContainer">ChartActivityContainer</a></li><li><a href="global.html#ChartAverage">ChartAverage</a></li><li><a href="global.html#ChartAverageContainer">ChartAverageContainer</a></li><li><a href="global.html#ChartPerformance">ChartPerformance</a></li><li><a href="global.html#ChartPerformanceContainer">ChartPerformanceContainer</a></li><li><a href="global.html#ChartScore">ChartScore</a></li><li><a href="global.html#ChartScoreContainer">ChartScoreContainer</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#KeyItem">KeyItem</a></li><li><a href="global.html#KeyItemContainer">KeyItemContainer</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#SharedLayout">SharedLayout</a></li><li><a href="global.html#SideNav">SideNav</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUserActivity">useUserActivity</a></li><li><a href="global.html#useUserAverage">useUserAverage</a></li><li><a href="global.html#useUserData">useUserData</a></li><li><a href="global.html#useUserPerformance">useUserPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Apr 01 2023 18:22:40 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
