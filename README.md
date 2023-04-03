@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# SportSee - Analytics dashboard with React
+
+This repository contains all the source code required to run the SportSee app, an analytics dashboard that helps you visualize and analyze your sports performance data.
+
+## 1. General information
+
+In this documentation, we will provide instructions on how to easily launch the frontend project. Please note that this frontend project is connected to a backend API service which also needs to be launched locally.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 2. Prerequisites
 
-In the project directory, you can run:
+- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/) or [Npm]()
+- IDE (VSCode, IntelliJ, ...)
 
-### `npm start`
+If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3. Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3.1 Backend Api
 
-### `npm test`
+The SportSee app relies on a backend API to retrieve data. You can find the source code for the backend API at the following URL: https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the SportSee app, you will need to have the backend API running locally as well. Please follow the instructions in the backend API repository's README file to set up and run the API locally.
 
-### `npm run build`
+Once the backend API is up and running, you can start the SportSee app by following the instructions in the "Installing" section of this README file.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The backend will be available at http://localhost:3000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3.2 Frontend App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 3.2.1 Dependencies
 
-### `npm run eject`
+This project also has the following dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+@testing-library/jest-dom: ^5.16.5
+@testing-library/react: ^13.4.0
+@testing-library/user-event: ^13.5.0
+prettier: ^2.8.4
+prop-types: ^15.8.1
+react: ^18.2.0
+react-dom: ^18.2.0
+react-router-dom: ^6.9.0
+react-scripts: 5.0.1
+recharts: ^2.4.3
+sass: ^1.59.2
+web-vitals: ^2.1.4
+jsdoc: ^4.0.2
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Please ensure that you have these dependencies installed and up-to-date before running the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 3.2.2 Installing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Clone this repository using the following command:
 
-## Learn More
+```bash
+git clone git@github.com:Yann-GitHub/sportsee.git
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Install the dependencies by running the command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm install or yarn install
+```
 
-### Code Splitting
+#### 3.2.3 Running the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Runs the app in the development mode by running the command:
 
-### Analyzing the Bundle Size
+```bash
+npm start or yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
+The page will reload when you make changes. You may also see any lint errors in the console.
 
-### Making a Progressive Web App
+## 4. Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+JSDoc documentation is available for this project, providing detailed information about the functions, parameters, and return types of the source code. To access the documentation, navigate to the doc folder in the root directory of the frontend project.
 
-### Advanced Configuration
+You can generate the documentation by running the following command in the terminal:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run jsdoc
+```
 
-### Deployment
+This will generate the JSDoc documentation in the doc folder, which you can then open in your browser to view the documentation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note: Please ensure that you have installed all the dependencies listed in the package.json file before generating the documentation.
