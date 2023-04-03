@@ -30,7 +30,7 @@ The backend will be available at http://localhost:3000.
 
 ### 3.2 Frontend App
 
-**Dependencies**
+**A/ Dependencies**
 
 This project also has the following dependencies:
 
@@ -52,7 +52,7 @@ jsdoc: ^4.0.2
 
 Please ensure that you have these dependencies installed and up-to-date before running the app.
 
-**Installing**
+**B/ Installing**
 
 - Clone this repository using the following command:
 
@@ -66,7 +66,7 @@ git clone git@github.com:Yann-GitHub/sportsee.git
 npm install or yarn install
 ```
 
-**Running the app**
+**C/ Running the app**
 
 - Runs the app in the development mode by running the command:
 
